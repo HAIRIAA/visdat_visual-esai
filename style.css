@@ -1,0 +1,416 @@
+
+.header {padding: 60px;
+text-align: center;
+color: white;
+display: block;
+}
+.header p {padding: 10px;
+text-align: center;
+color: black;
+display: block;
+
+}
+
+#box1{
+				width:150px;
+				height:150px;
+				background:#dfcbad;
+}
+ 
+a1 {
+        text-decoration: none;
+        display: inline-block;
+        padding: 8px 16px;
+    }
+
+    a1:hover {
+      background-color: #ddd;
+      color: black;
+    }
+}
+h1 {
+	font-family: leckerlyone ;
+	font-weight: Bold;
+	font-size :  50pt;
+	color : #114867;
+	margin-top : 50px;
+	margin-bottom : 30px;
+	
+}
+h2 {
+	font-family: broadway ;
+	font-weight: Bold;
+	font-size :  30pt;
+	color : #114867;
+	margin-top : 50px;
+	margin-bottom : 30px;
+	
+}
+p { margin-top : 0;
+    margin-bottom : 1rem;
+}	
+body {
+	background: #fff;
+	font-family: Helvetica, sans-serif; font-size: 18px; line-height: 24px;
+}
+
+	
+h3{
+	font-family: sans-serif;
+	font-weight: Bold;
+	font-size :  40pt;
+	color : #133337;
+}
+ 
+
+.malasngoding-slider { 
+	border: 10px solid #efefef; 
+	position: relative; 
+	overflow: hidden; 
+	background: #efefef;
+}
+ 
+.malasngoding-slider { 
+	margin:20px auto;
+	width: 768px;
+	height: 450px; 
+}
+ 
+.isi-slider img { 
+	width: 768px;
+	height: 450px; 
+	float: left;
+}
+ 
+.isi-slider { 
+	position: absolute; 
+	width:3900px;  
+ 
+	/*pengaturan durasi lama tampil gambar bisa di atur di bawah ini*/
+	animation-name:slider;
+	animation-duration:20s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count:infinite;
+	-webkit-animation-name:slider;
+	-webkit-animation-duration:20s;
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-animation-iteration-count:infinite;
+	-moz-animation-name:slider;
+	-moz-animation-duration:20s;
+	-moz-animation-timing-function: ease-in-out;
+	-moz-animation-iteration-count:infinite;
+	-o-animation-name:slider;
+	-o-animation-duration:16s;
+	-o-animation-timing-function: ease-in-out;
+	-o-animation-iteration-count:infinite;
+}
+ 
+ 
+/*saat gambar di hover oleh cursor mouse maka berhenti slide*/
+.isi-slider:hover { 
+	-webkit-animation-play-state:paused; 
+	-moz-animation-play-state:paused; 
+	-o-animation-play-state:paused; 
+	animation-play-state:paused; }
+}
+ 
+.isi-slider img { 
+	float: right; 
+}
+ 
+.malasngoding-slider:after { 
+	font-size: 150px; 
+	position: absolute; 
+	z-index: 12; 
+	color: rgba(255,255,255, 0); 
+	left: 300px; top: 80px; 
+	-webkit-transition: 1s all ease-in-out; 
+	-moz-transition: 1s all ease-in-out; 
+	transition: 1s all ease-in-out; 
+}
+ 
+.malasngoding-slider:hover:after { 
+	color: rgba(255,255,255, 0.6);  
+}
+ 
+ 
+ 
+@-moz-keyframes slider {     
+	0% {
+		left: 0; opacity: 0; 
+	}     
+	2% {
+		opacity: 1; 
+	}     
+	20% {
+		left: 0; opacity: 1; 
+	}     
+	21% {
+		opacity: 0; 
+	}     
+	24% {
+		opacity: 0; 
+	}     
+	25% {
+		left: -768px; opacity: 1; 
+	}       
+	45% {
+		left: -768px; opacity: 1; 
+	}     
+	46% {
+		opacity: 0; 
+	}     
+	48% {
+		opacity: 0; 
+	}     
+	50% {
+		left: -1536px; opacity: 1; 
+	}     
+	70% {
+		left: -1536px; opacity: 1; 
+	}     
+	72% {
+		opacity: 0; 
+	}     
+	74% {
+		opacity: 0; 
+	}    
+	75% {
+		left: -2304px; opacity: 1; 
+	}   	
+	95% {
+		left: -2304px; opacity: 1; 
+	}   	
+	97% { 
+		left: -2304px; opacity: 0;
+	}   	
+	100% {
+		left: 0; opacity: 0; 
+	}
+} 
+ 
+@-webkit-keyframes slider {     
+	0% {
+		left: 0; opacity: 0; 
+	}     
+	2% {
+		opacity: 1; 
+	}     
+	20% {
+		left: 0; opacity: 1; 
+	}     
+	21% {
+		opacity: 0; 
+	}     
+	24% {
+		opacity: 0; 
+	}     
+	25% {
+		left: -768px; opacity: 1; 
+	}       
+	45% {
+		left: -768px; opacity: 1; 
+	}     
+	46% {
+		opacity: 0; 
+	}     
+	48% {
+		opacity: 0; 
+	}     
+	50% {
+		left: -1536px; opacity: 1; 
+	}     
+	70% {
+		left: -1536px; opacity: 1; 
+	}     
+	72% {
+		opacity: 0; 
+	}     
+	74% {
+		opacity: 0; 
+	}    
+	75% {
+		left: -2304px; opacity: 1; 
+	}   	
+	95% {
+		left: -2304px; opacity: 1; 
+	}   	
+	97% { 
+		left: -2304px; opacity: 0;
+	}   	
+	100% {
+		left: 0; opacity: 0; 
+	}
+} 
+ 
+ 
+@keyframes slider {     
+	0% {
+		left: 0; opacity: 0; 
+	}     
+	2% {
+		opacity: 1; 
+	}     
+	20% {
+		left: 0; opacity: 1; 
+	}     
+	21% {
+		opacity: 0; 
+	}     
+	24% {
+		opacity: 0; 
+	}     
+	25% {
+		left: -768px; opacity: 1; 
+	}     
+	45% {
+		left: -768px; opacity: 1; 
+	}     
+	46% {
+		opacity: 0; 
+	}     
+	48% {
+		opacity: 0; 
+	}     
+	50% {
+		left: -1536px; opacity: 1; 
+	}     
+	70% {
+		left: -1536px; opacity: 1; 
+	}     
+	72% {
+		opacity: 0; 
+	}     
+	74% {
+		opacity: 0; 
+	}    
+	75% {
+		left: -2304px; opacity: 1; 
+	}   	
+	95% {
+		left: -2304px; opacity: 1; 
+	}   	
+	97% { 
+		left: -2304px; opacity: 0; 
+	} 
+ 
+	100% {
+		left: 0; opacity: 0; 
+	}
+}
+@media (max-width:700px) {
+	.container{
+		flex-direction:column;
+	}
+}
+h4  {
+	font-family: Sans ;
+	font-weight: Bold;
+	font-size :  35pt;
+	color : #133337;
+	margin-top : 100px;
+	margin-bottom : 30px;
+    position : center;
+}
+h5  {
+	font-family: Sans;
+	font-weight: Bold;
+	font-size :  35pt;
+	color : #133337;
+	margin-top : 100px;
+	margin-bottom : 30px;
+    position : center;
+}
+
+h6 { font-family : Arial;
+	 font-weight : Normal ;
+	 font-size :  15pt;
+	color : #133337;
+	margin-top : 50px;
+	margin-bottom : 15px;
+    position : center;
+	font-style : italic;
+}
+
+.lebarkolom {
+      width: 100%;
+      /* ukuran penuh layar table pada browser*/
+      margin: 0 auto;
+      /* opsional, supaya table berada di tengah jika dalam mode fixed,*/
+      /* bertindak seperti <table align="center">*/
+      border: 0px solid #000;
+      /* border, opsional */
+    }
+
+    .baris {
+      width: 100%;
+      /* harus 100% supaya penuh ke area table */
+    }
+
+    .kolom1 {
+      width: 50%;
+      /* lebar kolom 1 70% untuk artikel-artikel */
+      /* diberikan kompensasi seperlunya karena penggunaan margin,*/
+      /*BayuWPP*/
+      /* padding maupun border akan mempengaruhi lebar kolom */
+      float: left;
+      /* Konten di letakkan di sebelah kiri*/
+    }
+
+    .kolom2 {
+      width: 50%;
+      /* lebar kolom 2 30% untuk list artikel*/
+      /* diberikan kompensasi seperlunya karena penggunaan margin,*/
+      /*bayubayyz.blogspot.com*/
+      /* padding maupun border nantinya akan mempengaruhi lebar kolom */
+      float: left;
+      /* kolom yang lebih duluan akan ditempatkan di kiri, begitu seterusnya */
+    }
+ box1 {
+      width: 570px;
+      height: 300px;
+      background: white;
+      border-radius: 5px;
+      text-align: justify;
+      border-style: solid;
+      margin-left: 20px;
+    }
+
+    box12 {
+      width: 550px;
+      height: 300px;
+      background: white;
+      border-radius: 5px;
+      text-align: justify;
+      border-style: solid;
+      margin-left: 20px;
+	}
+  
+  .footer {
+	color : white;
+	font-size : 35pt;
+	margin: 80px auto; 
+	text-align: center;
+	position:center;
+	
+}
+
+@media only screen and (min-width: 480px) {
+  nav a {
+    float: left;
+    width: 30%;
+    margin: 0 0 0 5%;
+    padding: 25px 1%;
+    margin-bottom: 0;
+  }
+  nav li:first-child a {
+    margin-left: 0;
+  }
+  nav li:last-child a {
+    margin-right: 0;
+  }
+ 
+}
+
+td {font-color : #133337;
+}

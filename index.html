@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<title>Visual Esai</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="style.css" rel="stylesheet" />
+<style>
+body {
+  background-color: #dfcbad ;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+</style>
+</head>
+
+<body>
+
+ <div class = header>
+ 	 <h1>Fenomena Banjir dengan Data</h1>
+	  <p><i>"Ketika air sudah berang, meluluhlantakkan yang dilewati,menghancurkan yang diterpa,hingga binasakan yang kau sayangi. Belajarlah." </i>
+	  </p>	 
+</div>
+
+	<center>
+		<h3>Galeri Foto</h3>
+	</center>
+	<div class=malasngoding-slider>
+		<div class=isi-slider>
+			
+			<img src="banjir1.jpg" alt="Gambar 1">
+			<img src="banjir2.jpg" alt="Gambar 2">
+			<img src="banjir3.jpg" alt="Gambar 3">
+	
+		</div>
+	</div>
+<section>
+ <div class = banjir>
+ <Center>
+ <h4> Apa itu banjir? </h4>
+ <div style="kotak: auto; border: 1px solid #CCC; margin: auto; padding: 3px; width: 95%; height: 100px; background-color: none; text-align: justify;">Banjir adalah kejadian alam di mana suatu daerah atau daratan yang biasanya kering menjadi terendam air. 
+ Secara sederhana, banjir dapat didefinisikan sebagai luapan air dalam jumlah besar ke daratan yang biasanya kering. 
+ Banjir terjadi karena banyak hal seperti hujan yang berlebihan, meluapnya aliran sungai, sungai, danau atau lautan. 
+ Banjir sangat berbahaya dan berpotensi menyapu bersih seluruh kota, garis pantai atau daerah dan menyebabkan kerusakan luas pada kehidupan dan properti. 
+ Banjir juga memiliki kekuatan erosif yang besar dan bisa sangat merusak
+<a href="https://www.kompas.com/skola/read/2020/01/03/060000269/apa-itu-banjir-definisi-penyebab-dan-dampak?page=all">baca selengkapnya >></a></div>
+ 
+ <h5>Visualisasi Data</h5>
+ 
+ 
+ <h6> Jumlah Total Kejadian Bencana Banjir </h6>
+ <!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<!-- Add 2 buttons -->
+<button onclick="update('var1')">2017</button>
+<button onclick="update('var2')">2018</button>
+
+<!-- Create a div where the graph will take place -->
+<div id="my_dataviz1"></div>
+
+
+<script>
+
+// set the dimensions and margins of the graph
+var margin = {top: 10, right: 100, bottom: 30, left: 30},
+    width = 460 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg1 = d3.select("#my_dataviz1")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+// Initialize the X axis
+var x = d3.scaleBand()
+  .range([ 0, width ])
+  .padding(0.2);
+var xAxis = svg1.append("g")
+  .attr("transform", "translate(0," + height + ")")
+
+// Initialize the Y axis
+var y = d3.scaleLinear()
+  .range([ height, 0]);
+var yAxis = svg1.append("g")
+  .attr("class", "myYaxis")
+
+
+// A function that create / update the plot for a given variable:
+function update(selectedVar) {
+
+  // Parse the Data
+  d3.csv("https://raw.githubusercontent.com/HAIRIAA/coba/master/coba.csv", function(data) {
+
+    // X axis
+    x.domain(data.map(function(d) { return d.group; }))
+    xAxis.transition().duration(1000).call(d3.axisBottom(x))
+
+    // Add Y axis
+    y.domain([0, d3.max(data, function(d) { return +d[selectedVar] }) ]);
+    yAxis.transition().duration(1000).call(d3.axisLeft(y));
+
+    // variable u: map data to existing bars
+    var u = svg1.selectAll("rect")
+      .data(data)
+
+    // update bars
+    u
+      .enter()
+      .append("rect")
+      .merge(u)
+      .transition()
+      .duration(1000)
+        .attr("x", function(d) { return x(d.group); })
+        .attr("y", function(d) { return y(d[selectedVar]); })
+        .attr("width", x.bandwidth())
+        .attr("height", function(d) { return height - y(d[selectedVar]); })
+        .attr("fill", "#1e0f46")
+  })
+
+}
+
+// Initialize plot
+update('var1')
+
+</script>
+
+
+<h6> Fasilitas Terdampak Periode 2010-2019 </h6>
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+<!-- Initialize a select button -->
+<select id="selectButton"></select>
+<!-- Create a div where the graph will take place -->
+<div id="my_dataviz"></div>
+
+
+
+<!-- Color Scale -->
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+<script>
+
+// set the dimensions and margins of the graph
+var margin = {top: 10, right: 100, bottom: 30, left: 30},
+    width = 460 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg = d3.select("#my_dataviz")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+//Read the data
+d3.csv("https://raw.githubusercontent.com/HAIRIAA/coba/master/korban.csv", function(data) {
+
+    // List of groups (here I have one group per column)
+    var allGroup = ["kesehatan", "peribadatan", "pendidikan"]
+
+    // add the options to the button
+    d3.select("#selectButton")
+      .selectAll('myOptions')
+     	.data(allGroup)
+      .enter()
+    	.append('option')
+      .text(function (d) { return d; }) // text showed in the menu
+      .attr("value", function (d) { return d; }) // corresponding value returned by the button
+
+    // A color scale: one color for each group
+    var myColor = d3.scaleOrdinal()
+      .domain(allGroup)
+      .range(d3.schemeSet2);
+
+    // Add X axis --> it is a date format
+   var x = d3.scaleLinear()
+      .domain([0,10])
+      .range([ 0, width ]);
+    svg.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
+
+    // Add Y axis
+    var y = d3.scaleLinear()
+      .domain( [0,1500])
+      .range([ height, 0 ]);
+    svg.append("g")
+      .call(d3.axisLeft(y));
+
+    // Initialize line with group a
+    var line = svg
+      .append('g')
+      .append("path")
+        .datum(data)
+        .attr("d", d3.line()
+          .x(function(d) { return x(+d.time) })
+          .y(function(d) { return y(+d.kesehatan) })
+        )
+        .attr("stroke", function(d){ return myColor("kesehatan") })
+        .style("stroke-width", 4)
+        .style("fill", "none")
+
+    // A function that update the chart
+    function update(selectedGroup) {
+
+      // Create new data with the selection?
+      var dataFilter = data.map(function(d){return {time: d.time, value:d[selectedGroup]} })
+
+      // Give these new data to update line
+      line
+          .datum(dataFilter)
+          .transition()
+          .duration(1000)
+          .attr("d", d3.line()
+            .x(function(d) { return x(+d.time) })
+            .y(function(d) { return y(+d.value) })
+          )
+          .attr("stroke", function(d){ return myColor(selectedGroup) })
+    }
+
+    // When the button is changed, run the updateChart function
+    d3.select("#selectButton").on("change", function(d) {
+        // recover the option that has been chosen
+        var selectedOption = d3.select(this).property("value")
+        // run the updateChart function with this selected option
+        update(selectedOption)
+    })
+
+})
+
+
+</script>
+
+
+ <div>
+  <center>
+ <div> <a href="https://prod-apnortheast-a.online.tableau.com/t/visualdataaa/views/VisualisasiDataBanjir/Dashboard1?:showAppBanner=false&:display_count=n&:showVizHome=n&:origin=viz_share_link">Lihat visualisasi data dengan Tableau</a></div>
+  </center>
+</div>
+ <footer>
+ <center>
+  <p> &#169; Visual Esai Fenomena Banjir</p>
+  </center>
+ </footer>
+</body>
+</html>
